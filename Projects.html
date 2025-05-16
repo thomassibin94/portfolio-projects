@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Projects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">
+    <a href="https://sibinthomas.com">
+      <img src="Images/sibin.webp" alt="Logo" class="logo-img" />
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://sibinthomas.com">HOME</a>
+    <a href="https://sibinthomas.com/about-me">ABOUT ME</a>
+    <a href="https://sibinthomas.com/photography">PHOTOGRAPHY</a>
+    <a href="Projects.html" class="active">PROJECTS</a>
+    <a href="https://sibinthomas.com/blog">BLOG</a>
+    <a href="https://sibinthomas.com/contact">CONTACT</a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="filters">
+    <button onclick="filterTable('All')">
+      <img src="Images/allprojects.png" class="filter-icon-large" />
+    </button>
+    <button onclick="filterTable('Python')">
+      <img src="Images/python.svg" alt="Python" class="filter-icon-large" />
+    </button>
+    <button onclick="filterTable('Tableau')">
+      <img src="Images/tableau.png" alt="Tableau" class="filter-icon-large" />
+    </button>
+    <button onclick="filterTable('PySpark')">
+      <img src="Images/pyspark.png" alt="PySpark" class="filter-icon-large" />
+    </button>
+  </div>
+
+  <table id="projectTable">
+    <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-category="Python">
+        <td>
+          <a href="https://github.com/yourusername/personal-portfolio" target="_blank" rel="noopener noreferrer">
+            Personal Portfolio
+          </a><br />
+          <small class="project-desc">A personal portfolio website built with Python and Flask.</small>
+        </td>
+        <td>Python</td>
+      </tr>
+
+      <tr data-category="Tableau">
+        <td>
+          <a href="https://github.com/yourusername/sales-dashboard" target="_blank" rel="noopener noreferrer">
+            Sales Dashboard
+          </a><br />
+          <small class="project-desc">Interactive sales dashboard using Tableau for data visualization.</small>
+        </td>
+        <td>Tableau</td>
+      </tr>
+
+      <tr data-category="PySpark">
+        <td>
+          <a href="https://github.com/yourusername/chatbot-assistant" target="_blank" rel="noopener noreferrer">
+            Chatbot Assistant
+          </a><br />
+          <small class="project-desc">A chatbot assistant powered by PySpark and NLP techniques.</small>
+        </td>
+        <td>PySpark</td>
+      </tr>
+
+      <tr data-category="Python">
+        <td>
+          <a href="https://github.com/yourusername/blog-platform" target="_blank" rel="noopener noreferrer">
+            Blog Platform
+          </a><br />
+          <small class="project-desc">A blogging platform built with Python Django framework.</small>
+        </td>
+        <td>Python</td>
+      </tr>
+
+      <tr data-category="Tableau">
+        <td>
+          <a href="https://github.com/yourusername/customer-churn-model" target="_blank" rel="noopener noreferrer">
+            Customer Churn Model
+          </a><br />
+          <small class="project-desc">Predictive model for customer churn with visual insights via Tableau.</small>
+        </td>
+        <td>Tableau</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function filterTable(category) {
+    const rows = document.querySelectorAll("#projectTable tbody tr");
+    rows.forEach(row => {
+      const rowCategory = row.getAttribute("data-category");
+      row.style.display = category === "All" || rowCategory === category ? "" : "none";
+    });
+  }
+</script>
+
+</body>
+</html>
